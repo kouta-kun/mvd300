@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculo Montevideo 300</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="src/script.js" type="module"></script>
+    <style>
+        img {
+            display: inline;
+            max-height: 4em;
+        }
+
+        #check-template {
+            display: none;
+        }
+    </style>
+</head>
+<body onload="setup()">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <img src="https://montevideo300.uy/wp-content/uploads/2023/12/cropped-Montevideo-300.png"
+             alt="300 años Montevideo"/>
+        <span>Calculadora de tiempos para los 300 años de Montevideo</span>
+    </div>
+</nav>
+<br>
+<br>
+<div class="w-75 ms-auto me-auto">
+    <ul class="nav nav-tabs" id="tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="calc-tab" data-bs-toggle="tab" data-bs-target="#calculos" type="button"
+                    role="tab" aria-controls="calculos" aria-selected="true">Calcular
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tt-tab" data-bs-toggle="tab" data-bs-target="#horarios" type="button"
+                    role="tab" aria-controls="horarios" aria-selected="false">Horarios
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="trvlt-tab" data-bs-toggle="tab" data-bs-target="#tiempos" type="button"
+                    role="tab" aria-controls="tiempos" aria-selected="false">Tiempos de viaje
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content" id="tabcontent">
+        <div class="tab-pane show active" id="calculos">
+            <div id="check-template" class="form-check col-3">
+                <input class="form-check-input" type="checkbox" value="" id="CHECK-ID">
+                <label class="form-check-label" for="CHECK-ID">
+                    CHECK-LABEL
+                </label>
+            </div>
+            <div class="border p-4 mt-2 container">
+                <div class="row" id="bandlist"></div>
+            </div>
+            <button onclick="calculate()" class="btn btn-primary d-block ms-auto me-auto mt-2" type="button">Calcular
+            </button>
+            <div class="alert alert-danger" role="alert" style="display:none;" id="error-view">
+                <span id="error-alert"></span>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ignore-error-check">
+                    <label class="form-check-label" for="ignore-error-check">
+                        Ignorar y calcular de todos modos
+                    </label>
+                </div>
+            </div>
+            <div class="alert alert-warning" role="alert" style="display:none;" id="warning-view">
+            </div>
+            <div class="alert alert-primary" role="alert" style="display:none;" id="timetable-view">
+                <ul id="timetable">
+                </ul>
+            </div>
+        </div>
+        <div class="tab-pane" id="horarios">
+            <table class="table table-bordered table-striped mw-100" id="hour-table">
+                <tr>
+                    <th colspan="6">
+                        Horarios
+                    </th>
+                </tr>
+                <tr id="tblhdr-hour">
+                    <th>Hora</th>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane" id="tiempos">
+            <table class="table table-bordered table-striped mw-100" id="time-table">
+                <tr>
+                    <th colspan="6">
+                        Tiempos de viaje
+                    </th>
+                </tr>
+                <tr id="tblhdr-time">
+                    <th>Desde</th>
+                    <th>Hacia</th>
+                    <th>Minutos</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
